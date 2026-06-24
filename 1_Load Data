@@ -46,7 +46,6 @@ tickers = [
     "TEP.PA",    # Teleperformance
     "HO.PA",     # Thales
     "TTE.PA",    # TotalEnergies
-    "URW.AS",    # Unibail Rodamco
     "VIE.PA",    # Veolia
     "DG.PA",     # Vinci
     "VIV.PA",    # Vivendi
@@ -96,9 +95,6 @@ sectors_data = {
     # Materials
     "AI.PA": "Materials",   # Air Liquide
     "SGO.PA": "Materials",  # Saint-Gobain
-
-    # Real Estate
-    "URW.AS": "Real Estate",
 
     # Telecom & Communication
     "ORA.PA": "Communication", # Orange
