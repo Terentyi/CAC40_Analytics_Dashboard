@@ -50,7 +50,8 @@ tickers = [
     "VIE.PA",    # Veolia
     "DG.PA",     # Vinci
     "VIV.PA",    # Vivendi
-    "WLN.PA"     # Worldline]
+    "WLN.PA"     # Worldline
+]
 
 #trier par secteur avec un disctionnaire
 sectors_data = {
@@ -113,7 +114,8 @@ sectors_data = {
     "ML.PA": "Automotive",  # Michelin
 
     # Misc
-    "ATO.PA": "Technology" # Atos}
+    "ATO.PA": "Technology" # Atos
+}
 
 
 sectors = pd.DataFrame(
