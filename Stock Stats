@@ -1,0 +1,26 @@
+# a) Compute annualised return & vol
+ann_ret = returns.mean() * 252
+ann_vol = returns.std() * np.sqrt(252)
+
+# b) Build stock_stats DataFrame
+stock_stats = pd.DataFrame({
+    'annualised_return': ann_ret,
+    'annualised_vol': ann_vol,
+    'sharpe_ratio': ann_ret / ann_vol
+})
+stock_stats.index.name = 'Ticker'
+stock_stats = stock_stats.reset_index()
+
+print("Top 5 by Sharpe:")
+print(stock_stats.sort_values('sharpe_ratio', ascending=False).head())
+print("\nBottom 5 by Sharpe:")
+print(stock_stats.sort_values('sharpe_ratio', ascending=False).tail())
+
+# c) Merge with sectors
+stock_stats = stock_stats.merge(sectors, on='Ticker', how='left')
+
+# d) Sector groupby
+sector_stats = stock_stats.groupby('Sector')[['annualised_return', 'annualised_vol', 'sharpe_ratio']].mean()
+best_sector = sector_stats['sharpe_ratio'].idxmax()
+print(f"\n✅ Best risk-adjusted sector: {best_sector}")
+print(sector_stats.sort_values('sharpe_ratio', ascending=False))
