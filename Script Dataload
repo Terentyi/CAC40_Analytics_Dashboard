@@ -132,5 +132,6 @@ if isinstance(prices.columns, pd.MultiIndex):
 prices.index.name = "Date"
 prices = prices.ffill()
 returns = prices.pct_change().dropna()
+returns = returns.dropna(how="all")
 
 print(f"\n✅ Data loaded: {prices.shape[1]} stocks × {prices.shape[0]} trading days")
